@@ -1,4 +1,5 @@
 import {useNavigate} from "@solidjs/router";
+import Logo from "../components/Logo";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -31,8 +32,7 @@ export default function Login() {
   return (
     <div class="flex flex-col items-center justify-center w-[100dvw] h-[100dvh] gap-2 select-none">
       <div class="flex">
-        <span class="text-3xl font-bold text-amber-900">Secret Santa</span>
-        <span class="font-light text-amber-800">web panel</span>
+        <Logo />
       </div>
       <form class="flex flex-col bg-amber-300 px-8 py-6 gap-2 rounded-2xl shadow-inner items-center"
             onSubmit={handleSubmit}>
