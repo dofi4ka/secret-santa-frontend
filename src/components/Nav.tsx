@@ -17,7 +17,7 @@ export default function Nav() {
       <div class="flex mb-1 mx-6">
         <Logo />
       </div>
-      <button class="mx-6 text-lg text-red-700" onClick={logoutHandler}>
+      <button class="mx-6 text-lg text-red-700" onClick={logoutHandler} type="button">
         Logout
       </button>
     </div>
