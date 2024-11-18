@@ -1,5 +1,6 @@
 import {useNavigate} from "@solidjs/router";
 import Logo from "../components/Logo";
+import {setToken} from "../utils/auth";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -21,8 +22,7 @@ export default function Login() {
     }).then((response) => {
       response.json().then(data => {
         if (response.ok) {
-          localStorage.setItem("access_token", data.access_token)
-          localStorage.setItem("token_type", data.token_type)
+          setToken(data.token_type, data.access_token)
           navigate("/panel", {replace: true})
         } else alert(data.detail);
       });

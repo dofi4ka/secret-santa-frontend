@@ -19,3 +19,41 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+note:
+    (x^2 + 5) is always positive since square of any number is positive
+
+(2-x)(x^2+5) > 0 => 2-x > 0 => x < 2
+AND
+(x^2-5x+6) > 0 => (x-2)(x-3) > 0 => x < 2 OR x > 3
+AND
+4-x > 0 => x < 4
+
+       2  3  4
+1: ----o
+2: ----o  o------
+3: ----------o
+
+R: ----o
+
+x < 2
+
+
+log((2-x)*(x**2+5), 3) >= log(x**2-5*x+6, 3) + log(4-x, 3)
+  <span>llog((2-x)*(x**2+5), 3) >= log((4-x)*(x**2-5*x+6), 3)</span>
+  <span>l(2-x)*(x**2+5) >= (4-x)*(x**2-5*x+6)</span>
+  <span>l(2-x)*(x**2+5) - (4-x)*(x**2-5*x+6) >= 0</span>
+  <span>l2*x**2 + 10 - x**3 - 5*x - (4*x**2 - 20*x + 24 - x**3 + 5*x**2 - 6*x) >= 0</span>
+  <span>l2*x**2 + 10 - x**3 - 5*x - 4*x**2 + 20*x - 24 + x**3 - 5*x**2 + 6*x >= 0</span>
+  <span>l-7*x**2 + 21*x - 14 >= 0</span>
+  <span>l-x**2 + 3*x - 2 >= 0</span>
+  <span>lx**2 - 3*x + 2 <= 0</span>
+  <span>lD = 9 - 8</span>
+  <span>lx1 = (3 + 1) / 2 = 2</span>
+  <span>lx2 = (3 - 1) / 2 = 1</span>
+
+       1   2
+res:   *---*
+lim: ------o
+
+answer: x = [1; 2)

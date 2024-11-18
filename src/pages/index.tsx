@@ -1,27 +1,18 @@
 import {useNavigate} from "@solidjs/router";
+import {clearToken, getAuthorizationHeader, useAuthFetch} from "../utils/auth";
+import {onMount} from "solid-js";
 
 export default function Index() {
   const navigate = useNavigate();
-  if (localStorage.getItem("access_token") && localStorage.getItem("token_type")) {
-    fetch("/api/me", {
-      method: "get",
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': `${localStorage.getItem("token_type")} ${localStorage.getItem("access_token")}`
-      },
-    }).then((response) => {
-      response.json().then(data => {
-        if (!response.ok) {
-          navigate("/login", {replace: true})
-        }
-      });
-    });
-    navigate("/panel", {replace: true})
-  } else {
-    localStorage.removeItem("access_token")
-    localStorage.removeItem("token_type")
-    navigate("/login", {replace: true})
-  }
+  const authFetch = useAuthFetch();
 
-  return <></>
+  onMount(async () => {
+    if (getAuthorizationHeader()) {
+      const response = await authFetch("/api/me", {method: "GET"})
+      if (response.ok) navigate("/panel", {replace: true})
+    } else navigate("/login", {replace: true})
+  })
+
+  return <div>Checking authentication...</div>
 }
+
