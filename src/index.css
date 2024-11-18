@@ -16,3 +16,24 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.animate-wiggle {
+  animation: wiggle 0.28s infinite;
+}
+.animate-wiggle-invert {
+  animation: wiggle-invert 0.28s infinite;
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   25% { transform: rotate(.4deg); }
+   75% { transform: rotate(-.4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes wiggle-invert {
+    0% { transform: rotate(0deg); }
+   25% { transform: rotate(-.4deg); }
+   75% { transform: rotate(.4deg); }
+  100% { transform: rotate(0deg); }
+}
