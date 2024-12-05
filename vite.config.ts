@@ -19,12 +19,15 @@ export default defineConfig({
     }
   },
   server: {
-    port: 3000,
+    port: 3052,
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:8000',
         changeOrigin: true,
         rewrite: (path: string) => path.replace(/^\/api/, ''),
+      },
+      '/openapi.json': {
+        target: 'http://127.0.0.1:8000',
       },
     }
   },
