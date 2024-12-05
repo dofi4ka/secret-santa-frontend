@@ -23,7 +23,7 @@ export default function Login() {
       response.json().then(data => {
         if (response.ok) {
           setToken(data.token_type, data.access_token)
-          navigate("/panel", {replace: true})
+          navigate("/panel", { replace: true })
         } else alert(data.detail);
       });
     });

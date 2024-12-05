@@ -13,7 +13,7 @@ export default function Nav() {
   }
 
   return (
-    <div class="h-16 w-full bg-amber-300 flex items-center justify-between">
+    <div class="h-16 w-full bg-amber-300 flex items-center justify-between shadow">
       <div class="flex mb-1 mx-6">
         <Logo />
       </div>

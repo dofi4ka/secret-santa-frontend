@@ -8,7 +8,7 @@ export default function Index() {
 
   onMount(async () => {
     if (getAuthorizationHeader()) {
-      const response = await authFetch("/api/me", {method: "GET"})
+      const response = await authFetch("/me", { method: "GET" })
       if (response.ok) navigate("/panel", {replace: true})
     } else navigate("/login", {replace: true})
   })
